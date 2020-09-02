@@ -1,0 +1,11 @@
+# macos
+.DS_Store
+
+# LaTeX
+*.aux
+*.nav
+*.out
+*.snm
+*.gz
+*.toc
+*.log
