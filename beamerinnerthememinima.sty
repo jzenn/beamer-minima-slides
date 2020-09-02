@@ -1,0 +1,63 @@
+%% packages
+\RequirePackage{tikz}
+
+%% title page
+\defbeamertemplate*{title page}{minima}
+{ 
+  \vfill
+    {\centering
+      \usebeamerfont{title}\usebeamercolor[fg]{title}\inserttitle
+      \par
+    }
+    \vskip1cm%
+    {\centering
+      \usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle
+      \par
+    }
+    \vskip2cm%
+    {
+    \begin{stripe}
+    \centering
+	\usebeamerfont{author}\usebeamercolor[fg]{frametitle}\insertauthor
+    \par
+   	\small
+    \usebeamerfont{author}\usebeamercolor[fg]{frametitle}\today
+    \par
+    \end{stripe}
+    }
+  \vfill
+}
+\setbeamercolor{author}{fg=darkgray}
+
+%% theorems
+\setbeamertemplate{theorem begin}
+    {%
+        \begin{\inserttheoremblockenv}
+        {%
+            \normalfont
+            \inserttheoremname
+            \ifx\inserttheoremaddition\@empty
+            \else\ (\inserttheoremaddition)
+            \fi%
+            %\inserttheorempunctuation
+        }%
+        
+}
+
+\setbeamertemplate{theorem end}{\end{\inserttheoremblockenv}}
+\makeatother
+
+%% blocks
+\setbeamercolor{block title}{fg=white, bg=darkgray}
+\setbeamercolor{block body}{parent=normal text, bg=gray, fg=black, use=black}
+
+%% proofs
+\setbeamercolor{qed symbol}{fg=black}
+
+%% stripe
+\newenvironment<>{stripe}[0]{%
+  \setbeamercolor{block body}{fg=white, bg=darkgray}
+  \begin{columns}
+    \begin{column}{0.99\paperwidth}
+  \begin{block}{\vspace*{-3em}\hspace*{3em}}\centering{#1}}
+  {\end{block}\end{column}\end{columns}}
