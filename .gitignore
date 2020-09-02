@@ -9,3 +9,6 @@
 *.gz
 *.toc
 *.log
+
+# data
+*.zip
