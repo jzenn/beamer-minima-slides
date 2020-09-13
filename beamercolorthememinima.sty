@@ -44,10 +44,21 @@
 
 \makeatletter
 \define@key{beamerframe}{highlight}[true]{%
-  \setbeamertemplate{background canvas}[highlight]%
-  \setbeamercolor*{footline left}{fg=white}
-  \setbeamercolor*{footline right}{fg=white}
-  \usebeamercolor[fg]{footline left}
+	% background
+  	\setbeamertemplate{background canvas}[highlight]%
+	
+	% footline	
+	\setbeamercolor*{footline left}{fg=white}
+  	\setbeamercolor*{footline right}{fg=white}
+  	\usebeamercolor[fg]{footline left}
+  
+  	% itemize
+	\setbeamercolor*{itemize item}{fg=white}
+	\setbeamercolor*{itemize subitem}{fg=white}
+
+	% enumerate
+	\setbeamercolor*{enumerate item}{fg=white}
+	\setbeamercolor*{enumerate subitem}{fg=white}
 }
 \makeatother
 
