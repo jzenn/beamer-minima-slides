@@ -9,9 +9,9 @@ This projects wants to provide modern and simplistic LaTeX Beamer slides for pro
 - highlighting options (block, stripe)
 - a highlighting page
 
-Altering the three colors `lightgray`, `darkgray` and `grey` in the file `beamercolorthememinima.sty` gives an opportunity to adapt the slides easily to other color schemes.
+Altering the three colors `lightgray`, `darkgray` and `gray` in the file `beamercolorthememinima.sty` gives an opportunity to adapt the slides easily to other color schemes.
 
-Three exemplary color schemes [grey](https://jzenn.github.io/projects/minima-slides-examples), [blue](https://jzenn.github.io/projects/minima-slides-examples) and [red](https://jzenn.github.io/projects/minima-slides-examples) are 
+Three exemplary color schemes [gray](https://jzenn.github.io/projects/minima-slides-examples), [blue](https://jzenn.github.io/projects/minima-slides-examples) and [red](https://jzenn.github.io/projects/minima-slides-examples) are 
 provided for inspection.
 
 ---
