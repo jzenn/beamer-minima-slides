@@ -2,7 +2,7 @@
 
 This projects wants to provide modern and simplistic LaTeX Beamer slides for professional and private use. The slides include
 
-- a title template
+- two title templates
 - simple content (text, enumeration)
 - a template for mathematical content (definition, theorem, proof)
 - a template for algorithmic content (algorithm in pseudo-code)
@@ -11,7 +11,7 @@ This projects wants to provide modern and simplistic LaTeX Beamer slides for pro
 
 Altering the three colors `lightgray`, `darkgray` and `gray` in the file `beamercolorthememinima.sty` gives an opportunity to adapt the slides easily to other color schemes.
 
-Three exemplary color schemes [gray](https://jzenn.github.io/projects/minima-slides-examples), [blue](https://jzenn.github.io/projects/minima-slides-examples) and [red](https://jzenn.github.io/projects/minima-slides-examples) are 
+Three exemplary color schemes [gray](https://jzenn.github.io/projects/minima-slides-examples), [blue](https://jzenn.github.io/projects/minima-slides-examples) and [red](https://jzenn.github.io/projects/minima-slides-examples) are
 provided for inspection.
 
 ---
