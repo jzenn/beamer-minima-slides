@@ -1,6 +1,7 @@
 %% beamer package
 \documentclass[hyperref={colorlinks=true,linkcolor=blue},aspectratio=169]{beamer}
 \usepackage{environ}
+\usepackage{etoolbox}
 \usetheme{minima}
 
 %% packages
@@ -14,6 +15,10 @@
 
 \usepackage{graphicx}
 \usepackage[english]{babel}
+
+%% switch between title pages
+\newcommand{\setprimarytitlepage}{\setbeamertemplate{title page}[minima][primary]}
+\newcommand{\setsecondayrtitlepage}{\setbeamertemplate{title page}[minima][]}
 
 %% font
 \usefonttheme{professionalfonts}
