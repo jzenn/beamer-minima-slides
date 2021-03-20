@@ -23,6 +23,25 @@
 	\end{frame}
 
 	\begin{frame}
+		\frametitle{Switch Between Styles}
+
+		\begin{itemize}
+			\item switch with \texttt{\textbackslash setprimarytitlepage} and \texttt{\textbackslash setsecondarytitlepage} between title pages
+			\item switch with \texttt{\textbackslash usebluestyle} \texttt{\textbackslash useredstyle} and \texttt{\textbackslash usegraystyle} between color styles
+			\item for different colors than the provided ones, edit the colors in \texttt{beamercolorthememinima.sty}
+			\begin{itemize}
+				\item background color: \texttt{\textbackslash
+				definecolor\{lightgray\}\{HTML\}\{Your\_HEX\_Color\}}
+				\item primary color: \texttt{\textbackslash
+				definecolor\{darkgray\}\{HTML\}\{Your\_HEX\_Color\}}
+				\item secondary color: \texttt{\textbackslash
+				definecolor\{gray\}\{HTML\}\{Your\_HEX\_Color\}}
+			\end{itemize}
+		\end{itemize}
+		\vspace{1em}
+	\end{frame}
+
+	\begin{frame}
 		\frametitle{Simple Content}
 		Here we have an \texttt{itemize} environment.
 		\begin{itemize}
@@ -49,9 +68,9 @@
 		\framesubtitle{\texttt{small}}
 		Here we have an \texttt{itemize} environment.
 		\begin{itemize}
-			\item First.
-			\item Second.
-			\item Third.
+			\item \small First.
+			\item \small Second.
+			\item \small Third.
 		\end{itemize}
 		\vspace{1em}
 
@@ -60,9 +79,9 @@
 
 		Here we have an \texttt{enumerate} environment.
 		\begin{enumerate}
-			\item First.
-			\item Second.
-			\item Third.
+			\item \small First.
+			\item \small Second.
+			\item \small Third.
 		\end{enumerate}
 	\end{frame}
 	\end{framefont}
