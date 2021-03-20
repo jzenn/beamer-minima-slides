@@ -1,6 +1,6 @@
 %% colors
 
-% grey
+% gray
 \definecolor{lightgray}{HTML}{f8f8ff}
 \definecolor{darkgray}{HTML}{696969}
 \definecolor{gray}{HTML}{c0c0c0}
@@ -46,12 +46,12 @@
 \define@key{beamerframe}{highlight}[true]{%
 	% background
   	\setbeamertemplate{background canvas}[highlight]%
-	
-	% footline	
+
+	% footline
 	\setbeamercolor*{footline left}{fg=white}
   	\setbeamercolor*{footline right}{fg=white}
   	\usebeamercolor[fg]{footline left}
-  
+
   	% itemize
 	\setbeamercolor*{itemize item}{fg=white}
 	\setbeamercolor*{itemize subitem}{fg=white}
@@ -60,6 +60,26 @@
 	\setbeamercolor*{enumerate item}{fg=white}
 	\setbeamercolor*{enumerate subitem}{fg=white}
 }
+\pretocmd{\beamer@@@@frame}
+{
+  % background
+  \setbeamertemplate{background canvas}[def]%
+
+  % footline
+  \setbeamercolor*{footline left}{fg=darkgray}
+    \setbeamercolor*{footline right}{fg=darkgray}
+
+  \setbeamercolor*{normal text}{fg=black}
+  \usebeamercolor[fg]{normal text}
+
+  % itemize
+  \setbeamercolor*{itemize item}{fg=darkgray}
+  \setbeamercolor*{itemize subitem}{fg=darkgray}
+
+  % enumerate
+  \setbeamercolor*{enumerate item}{fg=darkgray}
+  \setbeamercolor*{enumerate subitem}{fg=darkgray}
+}{}{}
 \makeatother
 
 %% general
