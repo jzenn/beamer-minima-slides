@@ -3,10 +3,19 @@
 \author{Author}
 
 \begin{document}
+
+	% produce secondary title page
+	\setsecondayrtitlepage
 	\begin{frame}
 		\titlepage
 	\end{frame}
-	
+
+	% produce primary title page
+	\setprimarytitlepage
+	\begin{frame}
+		\titlepage
+	\end{frame}
+
 	\begin{frame}
 		\frametitle{Simple Content}
 		Here we have an \texttt{itemize} environment.
@@ -16,10 +25,10 @@
 			\item Third.
 		\end{itemize}
 		\vspace{1em}
-		
+
 		This is a paragraph. Lorem \textcolor{red}{ipsum} dolor sit amet, consetetur sadipscing elitr, sed diam nonumy \textcolor{green}{eirmod} tempor invidunt ut labore et dolore \textcolor{blue}{magna} aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren.
 		\vspace{1em}
-		
+
 		Here we have an \texttt{enumerate} environment.
 		\begin{enumerate}
 			\item First.
@@ -27,7 +36,7 @@
 			\item Third.
 		\end{enumerate}
 	\end{frame}
-	
+
 	\begin{framefont}{\small}
 	\begin{frame}
 		\frametitle{Simple Content}
@@ -39,10 +48,10 @@
 			\item Third.
 		\end{itemize}
 		\vspace{1em}
-		
+
 		This is a paragraph. Lorem \textcolor{red}{ipsum} dolor sit amet, consetetur sadipscing elitr, sed diam nonumy \textcolor{green}{eirmod} tempor invidunt ut labore et dolore \textcolor{blue}{magna} aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren.
 		\vspace{1em}
-		
+
 		Here we have an \texttt{enumerate} environment.
 		\begin{enumerate}
 			\item First.
@@ -51,11 +60,11 @@
 		\end{enumerate}
 	\end{frame}
 	\end{framefont}
-	
+
 	\begin{frame}
 		\frametitle{Mathematical Content}
 		\framesubtitle{An Example of Mathematical Content}
-		
+
 		\small
 		\begin{align*}
             p(C, \Pi, \Theta, W) &= p( \Pi \mid \alpha) p(C \mid \Pi) p(\Theta \mid \beta) p(W \mid C, \Theta)\\
@@ -77,19 +86,19 @@
             \right)\\
             &=
             \left(
-            \prod_d^D 
+            \prod_d^D
             \ca D(\pi_d; \alpha_d)
             \right)
             \left(
             \prod_d^D
-            \prod_i^{I_d} 
+            \prod_i^{I_d}
             \left(
             \prod_k^K \pi_{dk}^{c_{dik}}
             \right)
             \right)
             \left(
             \prod_d^D
-            \prod_i^{I_d} 
+            \prod_i^{I_d}
             \left(
             \prod_k^K \theta_{kW_{di}}^{c_{dik}}
             \right)
@@ -98,34 +107,34 @@
             \prod_k^K
             \ca D (\theta_k; \beta_k)
             \right)\\
-            &= 
+            &=
             \left(
-            \prod_d^D  
+            \prod_d^D
             \frac{\Gamma (\sum_k \alpha_{dk})}{\prod_k \Gamma(\alpha_{dk})}
             \prod_k^K \pi_{dk}^{\alpha_{dk}-1+n_{dk\cdot}}
             \right)
             \left(
-            \prod_d^D  
+            \prod_d^D
             \frac{\Gamma (\sum_v \beta_{kv})}{\prod_v \Gamma(\beta_{kv}))}
             \prod_v^V \theta_{kv}^{\alpha_{kv}-1+n_{\cdot kv}}
             \right)
         \end{align*}
-        
+
         This is the joint probability for the Latent Dirichlet Allocation. You can find more information on this topic \hyperlink{https://www.youtube.com/watch?v=o22cA1DhSMQ&list=PL05umP7R6ij1tHaOFY96m5uX3J21a6yNd&index=22&t=0s}{here} (where also this formula is taken from).
 	\end{frame}
 	\begin{framefont}{\small}
 	\begin{frame}
 	    \frametitle{Mathematical Content}
 	    \framesubtitle{Theorems and Proofs}
-	    
+
 	    \begin{definition}[odd integer]
 	    An integer $z \in \mathbb{Z}$ is said to be odd if it is not divisible by two, i.e. there exist no $k \in \mathbb Z$ s.t. $z = 2k$.
 	    \end{definition}
-	    
+
 	    \begin{theorem}[Multiplication of Odd Integers Yields Even Integer]
 	    Let $a, b \in \mathbb Z$ be two non-null odd integers. Then $a \cdot b$ is an even integer.
 	    \end{theorem}
-	    
+
 	    \begin{proof}
 	    Let $k, l \in \mathbb{Z} \backslash \{0\}, a = 2k+1, b = 2l+1$. Then
 	    $$
@@ -135,13 +144,13 @@
 	    \end{proof}
 	\end{frame}
 	\end{framefont}
-	
+
 	\begin{frame}
 	    \frametitle{Algorithmic Content}
 	    \framesubtitle{Bubble Sort}
 	    Bubble Sort is an algorithm to sort an array of real numbers.
 	    \vspace{1em}
-	    
+
 	    \begin{figure}
     	    \centering
     	    \begin{algorithm}[H]
@@ -161,31 +170,53 @@
     	    \end{algorithm}
 	    \end{figure}
 	\end{frame}
-	
+
 	\begin{frame}
 	    \frametitle{Blocks and Stripes}
-	    
+
 	    \begin{block}{Important information.}
 	    Some content is just too important to leave it without highlighting on a slide
 	    \end{block}
-	    
+
 	    \begin{stripe}
 	    Some content is just too important to leave it without highlighting on a slide. Like \textcolor{red}{this} needs to be additionally highlighted.
 	    \end{stripe}
 	 \end{frame}
-	 
+
 	 \begin{frame}[highlight]
 	    \frametitle{Highlight Title}
 	    \framesubtitle{Highlight Subtitle}
 	    \centering
 	    Sometimes there is a need for a special highlighting page to separate different topics in the presentation.
  	 \end{frame}
- 	 
+
       \begin{frame}[highlight]
         \centering
 	    Sometimes there is a need for a special highlighting page to separate different topics in the presentation.
 	    \vspace{1em}
 	    Even without a title.
  	 \end{frame}
+
+	 \begin{frame}
+		 \frametitle{Simple Content}
+		 \framesubtitle{... after a highlight-slide}
+		 Here we have an \texttt{itemize} environment.
+		 \begin{itemize}
+			 \item First.
+			 \item Second.
+			 \item Third.
+		 \end{itemize}
+		 \vspace{1em}
+
+		 This is a paragraph. Lorem \textcolor{red}{ipsum} dolor sit amet, consetetur sadipscing elitr, sed diam nonumy \textcolor{green}{eirmod} tempor invidunt ut labore et dolore \textcolor{blue}{magna} aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren.
+		 \vspace{1em}
+
+		 Here we have an \texttt{enumerate} environment.
+		 \begin{enumerate}
+			 \item First.
+			 \item Second.
+			 \item Third.
+		 \end{enumerate}
+	 \end{frame}
 
 \end{document}
