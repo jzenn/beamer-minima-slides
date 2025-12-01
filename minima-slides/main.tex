@@ -1,0 +1,264 @@
+%% include assets in search path 
+\makeatletter 
+\def\input@path{{./assets/}}
+\makeatother
+
+%% beamer package
+\documentclass[
+    smaller,
+    hyperref={
+        implicit=true,
+        colorlinks=true,
+        linkcolor=tuebingengold,
+        citecolor=tuebingengold,
+        urlcolor=tuebingengold
+    },
+    aspectratio=169,
+]{beamer}
+\usepackage{minima}
+
+%% font
+\usepackage{fontspec}
+% \usepackage[T1]{fontenc}
+% \usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+% the slides are optimized for Roboto Serif (frame titles) and Roboto (text)
+% feel free to experiment with outher fonts and let me know about your setup
+% get Roboto Serif from https://fonts.google.com/specimen/Roboto+Serif
+% get Roboto from https://fonts.google.com/specimen/Roboto
+% place both fonts in the assets folder or in the 'Font Book' in macOS
+\setsansfont{Roboto}[
+	% Path=assets/,  % remove, if fonts placed in 'Font Book'
+    Renderer=HarfBuzz,
+    UprightFont = {Roboto-VariableFont_wdth,wght.ttf},
+    BoldFont = {Roboto-VariableFont_wdth,wght.ttf},
+    ItalicFont  = {Roboto-Italic-VariableFont_wdth,wght.ttf},
+    BoldItalicFont = {Roboto-Italic-VariableFont_wdth,wght.ttf},
+    RawAxis={wght=250, wdth=100},
+    ItalicFeatures={RawAxis={wght=250, wdth=100}},
+    BoldFeatures={RawAxis={wght=700, wdth=100}},
+    BoldItalicFeatures={RawAxis={wght=700, wdth=100}}
+]
+\newfontfamily\TitleFont{Roboto Serif}[
+    % Path=assets/,  % remove, if fonts placed in 'Font Book'
+    Renderer=HarfBuzz,
+    UprightFont = {RobotoSerif-VariableFont_GRAD,opsz,wdth,wght.ttf},
+    BoldFont = {RobotoSerif-VariableFont_GRAD,opsz,wdth,wght.ttf},
+    ItalicFont  = {RobotoSerif-Italic-VariableFont_GRAD,opsz,wdth,wght.ttf},
+    BoldItalicFont = {RobotoSerif-Italic-VariableFont_GRAD,opsz,wdth,wght.ttf},
+    RawAxis={wdth=auto, wght=400, opsz=9, GRAD=0},
+    ItalicFeatures={RawAxis={wdth=auto, wght=400, opsz=9, GRAD=0}},
+    BoldFeatures={RawAxis={wdth=auto, wght=700, opsz=15, GRAD=0}},
+    BoldItalicFeatures={RawAxis={wdth=auto, wght=700, opsz=15, GRAD=0}} 
+]
+\newcommand{\titlefont}[1]{{\TitleFont #1}}  % serif font for: title, frame title, and frame sub-title
+\newcommand{\textsb}[1]{{\addfontfeatures{Weight=450}#1}}  % semi-bold font
+
+%% maths
+\usepackage{amsmath} 
+\usepackage{amssymb}
+\usepackage{pifont}
+\usepackage{mathtools}
+\usepackage{bm}
+\usefonttheme[onlymath]{serif}
+
+%% graphics
+\usepackage{tcolorbox}
+\usepackage{graphicx}
+
+%% tables
+\usepackage{tabularx}
+\usepackage{multicol} 
+\newcolumntype{Y}{>{\centering\arraybackslash}X}
+
+%% algorithms
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{float}
+
+%% references, citation style
+\usepackage{natbib}
+\usepackage{bibentry}
+\setcitestyle{authoryear,round,citesep={;},aysep={,},yysep={;}}
+\usepackage[nameinlink]{cleveref}
+
+%% urls
+\usepackage{xurl} %  appropriate line breaks
+
+%% text
+\usepackage[normalem]{ulem} % strike-through
+
+%% math definitions
+\input{math_commands} 
+
+
+%% %% %% %% %% %% %%
+
+\title{Title}
+\subtitle{Subtitle}
+\author{Author}
+
+
+\begin{document}
+
+	\begin{frame}
+		\titlepage
+	\end{frame}
+
+	\begin{frame}{Simple Content}
+		Here we have an \texttt{itemize} environment.
+		\begin{itemize}
+			\item First.
+			\item Second.
+			\item Third.
+		\end{itemize}
+		\vskip0.5em
+
+		This is a paragraph. Lorem \textcolor{red}{ipsum} dolor sit amet, consetetur sadipscing elitr, sed diam nonumy \textcolor{green}{eirmod} tempor invidunt ut labore et dolore \textcolor{blue}{magna} aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren.
+		\vskip0.5em
+
+		Here we have an \texttt{enumerate} environment.
+		\begin{enumerate}
+			\item First.
+			\item Second.
+			\item Third.
+		\end{enumerate}
+	\end{frame}
+
+
+	\begin{frame}[background=backgrounds/tuebingen.pdf]{Simple Content with Background}
+		Here we have an \texttt{itemize} environment.
+		\begin{itemize}
+			\item First.
+			\item Second.
+			\item Third.
+		\end{itemize}
+		\vskip0.5em
+
+		This is a paragraph. Lorem \textcolor{red}{ipsum} dolor sit amet, consetetur sadipscing elitr, sed diam nonumy \textcolor{green}{eirmod} tempor invidunt ut labore et dolore \textcolor{blue}{magna} aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren.
+		\vskip0.5em
+
+		Here we have an \texttt{enumerate} environment.
+		\begin{enumerate}
+			\item First.
+			\item Second.
+			\item Third.
+		\end{enumerate}
+	\end{frame}
+
+
+	\begin{frame}{Mathematical Content}{An Example of Mathematical Content}
+		\begin{align*}
+            p(C, \Pi, \Theta, W) &= p( \Pi \mid \alpha) p(C \mid \Pi) p(\Theta \mid \beta) p(W \mid C, \Theta)\\
+            &=
+            \left(
+            \prod_d^D p(\pi_d \mid \alpha_d)
+            \right)
+            \left(
+            \prod_d^D
+            \prod_i^{I_d} p(c_{di} \mid \pi_d)
+            \right)
+            \left(
+            \prod_d^D
+            \prod_i^{I_d} p(w_{di} \mid c_{di},\Theta)
+            \right)
+            \left(
+            \prod_k^K
+            p(\theta_k \mid \beta_k)
+            \right)\\
+            &=
+            \left(
+            \prod_d^D
+            \mathcal{D}(\pi_d; \alpha_d)
+            \right)
+            \left(
+            \prod_d^D
+            \prod_i^{I_d}
+            \left(
+            \prod_k^K \pi_{dk}^{c_{dik}}
+            \right)
+            \right)
+            \left(
+            \prod_d^D
+            \prod_i^{I_d}
+            \left(
+            \prod_k^K \theta_{kW_{di}}^{c_{dik}}
+            \right)
+            \right)
+            \left(
+            \prod_k^K
+            \mathcal{D} (\theta_k; \beta_k)
+            \right)\\
+            &=
+            \left(
+            \prod_d^D
+            \frac{\Gamma (\sum_k \alpha_{dk})}{\prod_k \Gamma(\alpha_{dk})}
+            \prod_k^K \pi_{dk}^{\alpha_{dk}-1+n_{dk\cdot}}
+            \right) 
+            \left(
+            \prod_d^D
+            \frac{\Gamma (\sum_v \beta_{kv})}{\prod_v \Gamma(\beta_{kv})}
+            \prod_v^V \theta_{kv}^{\alpha_{kv}-1+n_{\cdot kv}}
+            \right)
+        \end{align*}
+        \vskip1em
+        This is some joint probability distribution. 
+	\end{frame}
+	
+
+	\begin{frame}{Mathematical Content}{Theorems and Proofs}
+	    \begin{definition}[odd integer]
+	    	An integer $z \in \mathbb{Z}$ is said to be odd if it is not divisible by two, i.e. there exist no $k \in \mathbb Z$ s.t. $z = 2k$.
+	    \end{definition}
+
+	    \begin{theorem}[Multiplication of Odd Integers Yields Odd Integer]
+	    	Let $a, b \in \mathbb Z$ be two non-null odd integers. Then $a \cdot b$ is an odd integer.
+	    \end{theorem}
+
+	    \begin{proof}
+	    	Let $k, l \in \mathbb{Z} \backslash \{0\}, a = 2k+1, b = 2l+1$. Then
+		    $$
+		    a \cdot b = (2k+1)(2l+1) = 4kl + 2k + 2l + 1 = 2(2kl + k + l) + 1
+		    $$
+		    which is odd.
+	    \end{proof}
+	\end{frame} 
+
+
+	\begin{frame}{Algorithmic Content}{Bubble Sort}
+	    Bubble Sort is an algorithm to sort an array of real numbers.
+	    \begin{algorithm}[H]
+		\caption{BubbleSort($A$)}
+		\begin{algorithmic}[1]
+		  \State $n \gets \text{length}(A)$
+		  \For{$i \gets 1$ \dots $n-1$}
+		    \For{$j \gets 1$ \dots $n-i$}
+		      \If{$A[j+1] < A[j]$}
+		        \State \textbf{swap} $A[j]$ \textbf{and} $A[j+1]$
+		      \EndIf
+		    \EndFor
+		  \EndFor
+		  \State \Return $A$
+		\end{algorithmic}
+		\end{algorithm}
+	\end{frame}
+
+
+	\begin{frame}{Blocks and Stripes}
+	    \begin{block}{Important information.}
+	    	Some content is just too important to leave it without highlighting on a slide
+	    \end{block}
+
+	    \begin{stripe}
+	    	Some content is just too important to leave it without highlighting on a slide. 
+	    \end{stripe}
+	 \end{frame}
+
+
+	 \begin{frame}[highlight]{Highlight Title}{Highlight Subtitle}
+	    \centering
+	    Sometimes there is a need for a special highlighting page to separate different topics in the presentation.
+ 	 \end{frame}
+
+
+\end{document}

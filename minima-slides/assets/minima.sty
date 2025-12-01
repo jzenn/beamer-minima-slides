@@ -1,0 +1,308 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{minima}[2025/08/22 v2.0 minima]
+
+% =========================
+% PACKAGES
+% =========================
+\RequirePackage{xcolor}
+\RequirePackage{tikz}
+\RequirePackage{etoolbox}
+
+
+% =========================
+% COLORS DEFINITIONS
+% =========================
+% University of Tübingen
+\definecolor{tuebingenred}{RGB}{141,45,57}
+\definecolor{tuebingendark}{RGB}{55,65,74}
+\definecolor{tuebingengold}{RGB}{174,159,109}
+\definecolor{tuebingengold50p}{RGB}{225,215,193}
+
+% Vector Institute
+\definecolor{vectorpink}{RGB}{236,0,140}
+\definecolor{vectorblue}{RGB}{51,58,248}
+\definecolor{vectorturquoise}{RGB}{109,189,214}
+
+% default colors
+\definecolor{lightgray}{HTML}{f8f8ff}
+\definecolor{darkgray}{HTML}{696969}
+\definecolor{gray}{HTML}{c0c0c0}
+\definecolor{red}{HTML}{ba0300}
+\definecolor{green}{HTML}{00ba60}
+\definecolor{blue}{HTML}{005aba}
+
+% muted color scheme
+% see https://cran.r-project.org/web/packages/khroma/vignettes/tol.html#sec:muted
+\definecolor{c0}{HTML}{CC6677}
+\definecolor{c1}{HTML}{332288}
+\definecolor{c2}{HTML}{DDCC77}
+\definecolor{c3}{HTML}{117733}
+\definecolor{c4}{HTML}{88CCEE}
+\definecolor{c5}{HTML}{882255}
+\definecolor{c6}{HTML}{44AA99}
+\definecolor{c7}{HTML}{999933}
+\definecolor{c8}{HTML}{AA4499}
+\definecolor{c9}{HTML}{DDDDDD}
+
+
+% =========================
+% COLOR THE TEMPLATE
+% =========================
+% define specific parts of the slideset here
+\colorlet{canvasbg}{white} % background color of canvas
+\colorlet{footlinefg}{tuebingendark} % footline font color
+\colorlet{environmentsfg}{tuebingendark} % color of \item in environments
+\colorlet{textfg}{black} % color of text
+
+\colorlet{highlightcanvasbg}{tuebingengold} % background color of *highlight* canvas
+\colorlet{highlightfootlinefg}{white} % footline font color on *highlight* slides
+\colorlet{highlightenvironmentsfg}{white} % color of environments on *highlight* slides
+\colorlet{highlighttextfg}{white} % color of text on *highlight* slides
+
+\colorlet{backgroundcanvasbg}{tuebingengold} % background color of *background* canvas
+\colorlet{backgroundfootlinefg}{black} % footline font color on *background* slides
+\colorlet{backgroundframetitlefg}{tuebingendark} % frametitle font color on *background* slides
+\colorlet{backgroundenvironmentsfg}{black} % color of environments on *background* slides
+\colorlet{backgroundtextfg}{black} % color of text on *background* slides
+
+\colorlet{titlefg}{tuebingengold} % title color
+\colorlet{subtitlefg}{tuebingengold} % sub title color
+\colorlet{authorfg}{tuebingendark} % author name color
+
+\colorlet{frametitlefg}{tuebingendark} % color of title on every frame
+\colorlet{frametitlestripefg}{tuebingengold} % color of stripe/hairline on frame
+
+\colorlet{captionfg}{tuebingengold} % color of figure captions
+
+\colorlet{blocktitlefg}{white} % color of font in blocks (title)
+\colorlet{blocktitlebg}{tuebingengold} % background color in blocks (title)
+\colorlet{blockfg}{black} % color of font in blocks
+\colorlet{blockbg}{tuebingengold!10} % background color in blocks
+
+\colorlet{qedsymbolfg}{black} % qed symbol in proofs
+
+
+% =========================
+% INNERTHEME
+% =========================
+\makeatletter
+\define@key{beamerframe}{highlight}[true]{%
+  % background
+  \setbeamertemplate{background canvas}[highlight]%
+  \setbeamercolor{frametitle-left}{fg=highlightfootlinefg}%
+  \setbeamercolor{frametitle}{fg=highlightfootlinefg}%
+  % footline
+  \setbeamercolor*{footline left}{fg=highlightfootlinefg}%
+  \setbeamercolor*{footline right}{fg=highlightfootlinefg}%
+  % text
+  \setbeamercolor*{normal text}{fg=highlighttextfg}%
+  \usebeamercolor[fg]{normal text}%
+  % itemize
+  \setbeamercolor*{itemize item}{fg=highlightenvironmentsfg}%
+  \setbeamercolor*{itemize subitem}{fg=highlightenvironmentsfg}%
+  % enumerate
+  \setbeamercolor*{enumerate item}{fg=highlightenvironmentsfg}%
+  \setbeamercolor*{enumerate subitem}{fg=highlightenvironmentsfg}%
+}
+\define@key{beamerframe}{background}[default_background.pdf]{%
+  % background
+  \setbeamertemplate{background canvas}[background]{#1}%
+  \setbeamercolor{frametitle-left}{fg=backgroundframetitlefg}%
+  \setbeamercolor{frametitle}{fg=backgroundframetitlefg}%
+  % footline
+  \setbeamercolor*{footline left}{fg=backgroundfootlinefg}%
+  \setbeamercolor*{footline right}{fg=backgroundfootlinefg}%
+  % text
+  \setbeamercolor*{normal text}{fg=backgroundtextfg}%
+  \usebeamercolor[fg]{normal text}%
+  % itemize
+  \setbeamercolor*{itemize item}{fg=backgroundenvironmentsfg}%
+  \setbeamercolor*{itemize subitem}{fg=backgroundenvironmentsfg}%
+  % enumerate
+  \setbeamercolor*{enumerate item}{fg=backgroundenvironmentsfg}%
+  \setbeamercolor*{enumerate subitem}{fg=backgroundenvironmentsfg}%
+}
+\pretocmd{\beamer@@@@frame}{%
+  % background
+  \setbeamertemplate{background canvas}[def]%
+  \setbeamercolor{frametitle-left}{fg=frametitlefg}%
+  \setbeamercolor{frametitle}{fg=frametitlefg}%
+  % footline
+  \setbeamercolor*{footline left}{fg=footlinefg}%
+  \setbeamercolor*{footline right}{fg=footlinefg}%
+  % text
+  \setbeamercolor*{normal text}{fg=textfg}%
+  \usebeamercolor[fg]{normal text}%
+  % itemize
+  \setbeamercolor*{itemize item}{fg=environmentsfg}%
+  \setbeamercolor*{itemize subitem}{fg=environmentsfg}%
+  % enumerate
+  \setbeamercolor*{enumerate item}{fg=environmentsfg}%
+  \setbeamercolor*{enumerate subitem}{fg=environmentsfg}%
+}{}{}
+\makeatother
+
+% frame background templates
+\defbeamertemplate*{background canvas}{def}{%
+  \color{canvasbg}\vrule width\paperwidth height\paperheight%
+}
+\defbeamertemplate*{background canvas}{highlight}{%
+  \color{highlightcanvasbg}\vrule width\paperwidth height\paperheight%
+}
+\defbeamertemplate*{background canvas}{background}[1]{%
+    \begin{tikzpicture}[remember picture, overlay]
+        \node[at=(current page.center)] {
+            \includegraphics[width=\paperwidth, height=\paperheight]{
+            #1}
+        };
+    \end{tikzpicture}
+}
+
+% title page
+\defbeamertemplate*{title page}{minima}[1][]{
+  \vskip1.25em
+  {
+    \centering
+    \usebeamerfont{title}\usebeamercolor[fg]{title}\inserttitle
+    \par
+  }
+  \vskip1em
+  {
+    \centering
+    \usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle
+    \par
+  }
+  \vskip1em
+  {
+    \begin{center}
+      \centering
+      {\usebeamerfont{author}\usebeamercolor[fg]{author}\insertauthor}
+    \end{center}
+  }
+}
+\setbeamercolor*{title}{fg=titlefg}
+\setbeamercolor*{subtitle}{fg=subtitlefg}
+\setbeamercolor*{author}{fg=authorfg}
+\setbeamerfont{title}{series=\bfseries,family=\TitleFont,size=\LARGE}
+\setbeamerfont{subtitle}{size=\large}
+
+% frame fonts
+\setbeamerfont{frametitle}{series=\bfseries,family=\TitleFont,size=\Large}
+\setbeamerfont{framesubtitle}{series=\normalfont,size=\small,family=\TitleFont}
+\setbeamerfont{footline}{size=\fontsize{5}{5}\selectfont}
+
+% environments
+\setbeamerfont{itemize/enumerate body}{size=\small}
+\setbeamerfont{itemize/enumerate subbody}{size=\small}
+\setbeamerfont{itemize/enumerate subsubbody}{size=\small}
+
+% figures
+\setbeamertemplate{caption}[numbered]
+\setbeamercolor{caption name}{fg=captionfg}
+\setbeamerfont{caption}{size=\small}
+\setbeamerfont{caption name}{size=\small}
+\setbeamerfont{caption label}{size=\small}
+
+% theorems
+\makeatletter
+\setbeamertemplate{theorem begin}{%
+  \begin{\inserttheoremblockenv}{%
+      \normalfont
+      \small
+      \inserttheoremname
+      \ifx\inserttheoremaddition\@empty\else\ (\inserttheoremaddition)\fi
+  }%
+}
+\setbeamertemplate{theorem end}{\end{\inserttheoremblockenv}}
+\makeatother
+\makeatletter
+\setbeamertemplate{proof begin}{%
+  \begin{\inserttheoremblockenv}{%
+      \normalfont
+      \small
+      \textit{Proof.}
+  }%
+}
+\setbeamertemplate{proof end}{\end{\inserttheoremblockenv}}
+\makeatother
+\setbeamercolor{qed symbol}{fg=qedsymbolfg}
+
+% blocks
+\setbeamercolor{block title}{fg=blocktitlefg, bg=blocktitlebg}
+\setbeamercolor{block body}{parent=normal text, bg=blockbg, fg=blockfg, use=blockfg}
+
+% stripe environment
+\newenvironment<>{stripe}[0]{%
+  \setbeamercolor{block body}{fg=blockfg, bg=blockbg}%
+  \begin{columns}%
+    \begin{column}{0.99\paperwidth}%
+      \begin{block}{\vspace*{-3em}\hspace*{3em}}\centering{#1}%
+}{%
+      \end{block}\end{column}\end{columns}%
+}
+
+
+% =========================
+% OUTERTHEME
+% =========================
+% navigation symbols off
+\setbeamertemplate{navigation symbols}{}
+
+% smaller default text on frames
+\AtBeginEnvironment{frame}{\small}
+
+% frametitle with stripe
+\defbeamertemplate*{frametitle}{minima}[1][]{
+  \begin{beamercolorbox}[wd=\paperwidth,ht=1.5cm]{frametitle}
+    \begin{tikzpicture}[remember picture,overlay]
+      \ifdefempty{\insertframesubtitle}{%
+        \node[anchor=west] at (0.3,0.7)
+          {\usebeamerfont{frametitle}\insertframetitle};
+      }{%
+        \node[anchor=west] at (0.3,0.925)
+          {\usebeamerfont{frametitle}\insertframetitle};
+        \node[anchor=west] at (0.3,0.375)
+          {\usebeamerfont{framesubtitle}\insertframesubtitle};
+      }
+      % uncomment for logo in top right corner
+      % \node[anchor=west] at (12,0.75){\includegraphics[width=6.5em, height=2em]{example-image-a}};
+      \fill[color=frametitlestripefg] (0,0.02) rectangle (\paperwidth,0.0);
+    \end{tikzpicture}
+    \vskip0.25em
+  \end{beamercolorbox}
+}
+\setbeamertemplate{frametitle}[minima]
+
+
+% footer  
+\makeatletter
+\setbeamertemplate{footline}{%
+  \begin{minipage}[t]{0.95\paperwidth}
+    \begin{beamercolorbox}[wd=0.95\paperwidth, ht = 1cm]{footline left}
+      \ifnum\thepage>1\relax%
+        \vskip0.1cm%
+        \hskip0.3cm%
+        \begingroup\let\hyperlink\@secondoftwo\insertshortauthor\endgroup
+        :
+        \begingroup\let\hyperlink\@secondoftwo\insertshorttitle\endgroup
+        \; -- \;\begingroup\let\hyperlink\@secondoftwo\insertshortsubtitle\endgroup
+        \kern1em\vskip2pt%
+        \hfill
+      \fi
+    \end{beamercolorbox}
+  \end{minipage}
+  \begin{minipage}[t]{0.045\paperwidth}
+    \begin{beamercolorbox}[wd=0.045\paperwidth, ht = 1cm]{footline right}
+      \ifnum\thepage>1\relax%
+        \insertframenumber\,/\,\inserttotalframenumber\kern1em\vskip2pt%
+        \hfill
+      \fi
+    \end{beamercolorbox}
+  \end{minipage}
+}
+\makeatother
+
+\setbeamertemplate{title page}[minima]
+\setbeamertemplate{frametitle}[minima]
+
+\endinput
